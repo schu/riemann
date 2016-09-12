@@ -1264,12 +1264,12 @@
 
 (defn tagged-any
   "Passes on events where any of tags are present. This stream returns true if
-  an event it receives matches those tags, nil otherwise.
+  an event it receives matches any tag, nil otherwise.
 
   Can be used as a predicate in a where form.
 
   (tagged-any \"foo\" prn)
-  (tagged-all [\"foo\" \"bar\"] prn)"
+  (tagged-any [\"foo\" \"bar\"] prn)"
   [tags & children]
   (let [tag-coll (flatten [tags])]
     (fn stream [event]
